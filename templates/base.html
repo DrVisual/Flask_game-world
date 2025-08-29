@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}В мире игрового поколения{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>В мире игрового поколения</h1>
+        <p>Прохождения, советы и воспоминания о великих играх</p>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Главная</a>
+        <a href="{{ url_for('games_list') }}">Игры</a>
+        <a href="{{ url_for('add_game') }}">Добавить игру</a>
+    </nav>
+
+    <main>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="text-align: center; color: #7fdbff; font-weight: bold; margin: 20px 0;">
+                        {{ message }}
+                    </p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>Сайт создан для любителей игр. &copy; 2025</p>
+        <p>Контакты: <a href="mailto:guides@game-world.ru">guides@game-world.ru</a></p>
+        <p>Телефон: +7 (999) 123-45-67</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+
+{% block title %}Добавить игру — В мире игрового поколения{% endblock %}
+
+{% block content %}
+<section style="max-width: 600px; margin: 0 auto;">
+    <h2>Добавить игру</h2>
+    <form method="POST" action="{{ url_for('add_game') }}">
+        <div style="margin-bottom: 15px;">
+            <label for="title" style="display: block; margin-bottom: 5px; font-weight: bold;">Название игры</label>
+            <input type="text" id="title" name="title" required
+                   style="width: 100%; padding: 10px; border: 1px solid #333; border-radius: 6px; background: #111; color: white;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="description" style="display: block; margin-bottom: 5px; font-weight: bold;">Описание</label>
+            <textarea id="description" name="description" rows="3" required
+                      style="width: 100%; padding: 10px; border: 1px solid #333; border-radius: 6px; background: #111; color: white;"></textarea>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="guide" style="display: block; margin-bottom: 5px; font-weight: bold;">Гайд (прохождение)</label>
+            <textarea id="guide" name="guide" rows="8" required
+                      style="width: 100%; padding: 10px; border: 1px solid #333; border-radius: 6px; background: #111; color: white; font-family: monospace;"></textarea>
+        </div>
+
+        <button type="submit"
+                style="background: #0074D9; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem;">
+            Добавить игру
+        </button>
+    </form>
+</section>
+{% endblock %}

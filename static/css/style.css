@@ -1,0 +1,204 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Фон сайта — обложка */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Фон остаётся на месте при прокрутке */
+    background-repeat: no-repeat;
+    color: #e0e0e0;
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Полупрозрачный затемнённый слой поверх фона */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
+                url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -2;
+}
+
+/* Для контента — затемнённый слой (опционально) */
+main {
+    position: relative;
+    z-index: 1;
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Улучшенный header с прозрачностью */
+header {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 1000px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px #000;
+}
+
+header p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #cccccc;
+}
+
+/* Навигация */
+nav {
+    background: rgba(0, 31, 63, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    color: #7fdbff;
+    transform: scale(1.05);
+}
+
+/* Секции */
+section {
+    margin-bottom: 50px;
+    background: rgba(10, 17, 40, 0.7);
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #7fdbff;
+    text-align: center;
+    text-shadow: 1px 1px 3px #000;
+}
+
+/* Карточки игр */
+.game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-items: center;
+}
+
+.game-card {
+    background-color: rgba(17, 27, 51, 0.9);
+    border-radius: 12px;
+    overflow: hidden;
+    width: 280px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+    border: 1px solid #003366;
+}
+
+.game-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+}
+
+.game-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid #0055aa;
+}
+
+.game-card .content {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.game-card p {
+    font-size: 0.95rem;
+    color: #cccccc;
+    flex: 1;
+}
+
+/* Кнопки */
+a, button {
+    transition: background 0.3s, border 0.3s;
+}
+
+/* Футер */
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(0, 31, 63, 0.8);
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 40px auto 20px;
+}
+
+.footer a {
+    color: #7fdbff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Для страниц с формами и гайдами */
+article {
+    background: rgba(10, 17, 40, 0.8) !important;
+    border: 1px solid #0055aa;
+}

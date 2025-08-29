@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Игры — В мире игрового поколения{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Доступные прохождения</h2>
+    <div class="game-list">
+        {% for game in games %}
+        <a href="{{ url_for('show_guide', game_id=game.id) }}" style="text-decoration: none; color: inherit;">
+            <div class="game-card">
+                <img src="{{ url_for('static', filename='images/' + game.image) }}"
+                     alt="{{ game.title }}">
+                <div class="content">
+                    <h3>{{ game.title }}</h3>
+                    <p>{{ game.description }}</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
